@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divine Promises from the Qur'an</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter & Amiri -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .arabic-text {
+            font-family: 'Amiri', serif;
+            font-size: 1.75rem; /* Larger font size for Arabic */
+            line-height: 2.5rem;
+        }
+        /* Style for the scroll-to-top button */
+        #to-top-btn {
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        /* Custom gradient background */
+        .bg-gradient-custom {
+            background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+        }
+    </style>
+</head>
+<body class="bg-gradient-custom text-gray-800">
+
+    <!-- Main Container -->
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- Header Section -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-teal-800 mb-2">Divine Promises from the Qur'an</h1>
+            <p class="text-lg text-gray-600">A collection of Allah's assurances to humanity, supported by the Sunnah.</p>
+        </header>
+
+        <!-- Search Bar -->
+        <div class="mb-12 max-w-2xl mx-auto">
+            <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <input type="text" id="searchInput" onkeyup="filterPromises()" placeholder="Search by keyword (e.g., 'paradise', 'patience', 'hadith')..." class="block w-full bg-white border border-gray-300 rounded-full py-3 pl-10 pr-4 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent shadow-sm">
+            </div>
+        </div>
+
+        <!-- Promises Grid -->
+        <div id="promises-container" class="space-y-10">
+            
+            <!-- Category: Faith and the Believer's Status -->
+            <section class="promise-card-category">
+                <h2 class="text-2xl font-bold text-teal-700 border-b-2 border-teal-200 pb-2 mb-6">I. Faith and the Believer's Status</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Promise Card: Paradise -->
+                    <div class="promise-card flex flex-col bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">1. The Promise of Paradise (Jannah)</h3>
+                        <p dir="rtl" class="arabic-text text-teal-900 mb-4 text-right">وَعَدَ اللَّهُ الْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ جَنَّاتٍ تَجْرِي مِن تَحْتِهَا الْأَنْهَارُ</p>
+                        <p class="text-gray-700 mb-1 italic">"Allah has promised the believing men and believing women gardens beneath which rivers flow..."</p>
+                        <p class="text-sm font-medium text-teal-600 mb-4">Qur'an, 9:72</p>
+                        <div class="mt-auto pt-4 border-t border-teal-100">
+                           <h4 class="font-semibold text-teal-800 mb-2">From the Sunnah:</h4>
+                           <p class="text-gray-600 italic">The Prophet (ﷺ) said, "Allah said, 'I have prepared for My righteous slaves (in Paradise) what no eye has seen, no ear has heard, and no human heart can imagine.'"</p>
+                           <p class="text-sm font-medium text-teal-600 mt-2">Sahih al-Bukhari</p>
+                        </div>
+                    </div>
+                    <!-- Promise Card: Good Life -->
+                    <div class="promise-card flex flex-col bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">2. The Promise of a Good Life</h3>
+                        <p dir="rtl" class="arabic-text text-teal-900 mb-4 text-right">مَنْ عَمِلَ صَالِحًا مِّن ذَكَرٍ أَوْ أُنثَىٰ وَهُوَ مُؤْمِنٌ فَلَنُحْيِيَنَّهُ حَيَاةً طَيِّبَةً</p>
+                        <p class="text-gray-700 mb-1 italic">"Whoever does righteousness, whether male or female, while he is a believer - We will surely cause him to live a good life..."</p>
+                        <p class="text-sm font-medium text-teal-600 mb-4">Qur'an, 16:97</p>
+                        <div class="mt-auto pt-4 border-t border-teal-100">
+                           <h4 class="font-semibold text-teal-800 mb-2">From the Sunnah:</h4>
+                           <p class="text-gray-600 italic">The Prophet (ﷺ) said, "Richness is not in having many possessions, but richness is in the richness of the soul."</p>
+                           <p class="text-sm font-medium text-teal-600 mt-2">Sahih al-Bukhari</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Category: Cause and Effect -->
+            <section class="promise-card-category">
+                <h2 class="text-2xl font-bold text-teal-700 border-b-2 border-teal-200 pb-2 mb-6">II. Promises of Cause and Effect</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Promise Card: Forgiveness -->
+                    <div class="promise-card flex flex-col bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">3. For Seeking Forgiveness (Istighfar)</h3>
+                        <p dir="rtl" class="arabic-text text-teal-900 mb-4 text-right">فَقُلْتُ اسْتَغْفِرُوا رَبَّكُمْ إِنَّهُ كَانَ غَفَّارًا يُرْسِلِ السَّمَاءَ عَلَيْكُم مِّدْرَارًا</p>
+                        <p class="text-gray-700 mb-1 italic">"'Ask forgiveness of your Lord... He will send [rain from] the sky upon you in showers...'"</p>
+                        <p class="text-sm font-medium text-teal-600 mb-4">Qur'an, 71:10-11</p>
+                        <div class="mt-auto pt-4 border-t border-teal-100">
+                           <h4 class="font-semibold text-teal-800 mb-2">From the Sunnah:</h4>
+                           <p class="text-gray-600 italic">The Prophet (ﷺ) said, 'Whoever constantly seeks forgiveness, Allah will appoint for him a way out of every distress and a relief from every anxiety, and will provide for him from where he did not expect.'</p>
+                           <p class="text-sm font-medium text-teal-600 mt-2">Sunan Abi Dawood</p>
+                        </div>
+                    </div>
+                    <!-- Promise Card: Gratitude -->
+                    <div class="promise-card flex flex-col bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">4. For Gratitude (Shukr)</h3>
+                        <p dir="rtl" class="arabic-text text-teal-900 mb-4 text-right">لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ</p>
+                        <p class="text-gray-700 mb-1 italic">"'If you are grateful, I will surely increase you [in favor]...'"</p>
+                        <p class="text-sm font-medium text-teal-600 mb-4">Qur'an, 14:7</p>
+                        <div class="mt-auto pt-4 border-t border-teal-100">
+                           <h4 class="font-semibold text-teal-800 mb-2">From the Sunnah:</h4>
+                           <p class="text-gray-600 italic">The Prophet (ﷺ) said, "He has not thanked Allah who has not thanked people."</p>
+                           <p class="text-sm font-medium text-teal-600 mt-2">Sunan Abi Dawood</p>
+                        </div>
+                    </div>
+                    <!-- Promise Card: Piety -->
+                    <div class="promise-card flex flex-col bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">5. For Piety (Taqwa)</h3>
+                        <p dir="rtl" class="arabic-text text-teal-900 mb-4 text-right">وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ</p>
+                        <p class="text-gray-700 mb-1 italic">"And whoever fears Allah - He will make for him a way out and will provide for him from where he does not expect."</p>
+                        <p class="text-sm font-medium text-teal-600 mb-4">Qur'an, 65:2-3</p>
+                        <div class="mt-auto pt-4 border-t border-teal-100">
+                           <h4 class="font-semibold text-teal-800 mb-2">From the Sunnah:</h4>
+                           <p class="text-gray-600 italic">The Prophet (ﷺ) said, "The most honorable of people is the one with the most Taqwa (piety)."</p>
+                           <p class="text-sm font-medium text-teal-600 mt-2">Sahih al-Bukhari</p>
+                        </div>
+                    </div>
+                    <!-- Promise Card: Trust -->
+                    <div class="promise-card flex flex-col bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">6. For Trust (Tawakkul)</h3>
+                        <p dir="rtl" class="arabic-text text-teal-900 mb-4 text-right">وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ</p>
+                        <p class="text-gray-700 mb-1 italic">"...And whoever relies upon Allah - then He is sufficient for him."</p>
+                        <p class="text-sm font-medium text-teal-600 mb-4">Qur'an, 65:3</p>
+                        <div class="mt-auto pt-4 border-t border-teal-100">
+                           <h4 class="font-semibold text-teal-800 mb-2">From the Sunnah:</h4>
+                           <p class="text-gray-600 italic">The Prophet (ﷺ) said, "If you were to rely upon Allah with the reliance He is due, you would be provided for as a bird is provided for: it goes out in the morning hungry and returns in the evening full."</p>
+                           <p class="text-sm font-medium text-teal-600 mt-2">Jami` at-Tirmidhi</p>
+                        </div>
+                    </div>
+                     <!-- Promise Card: Patience -->
+                    <div class="promise-card flex flex-col bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">7. For Patience (Sabr)</h3>
+                        <p dir="rtl" class="arabic-text text-teal-900 mb-4 text-right">إِنَّمَا يُوَفَّى الصَّابِرُونَ أَجْرَهُم بِغَيْرِ حِسَابٍ</p>
+                        <p class="text-gray-700 mb-1 italic">"Only those who are patient shall receive their reward in full, without reckoning."</p>
+                        <p class="text-sm font-medium text-teal-600 mb-4">Qur'an, 39:10</p>
+                        <div class="mt-auto pt-4 border-t border-teal-100">
+                           <h4 class="font-semibold text-teal-800 mb-2">From the Sunnah:</h4>
+                           <p class="text-gray-600 italic">The Prophet (ﷺ) said, "No one is given a gift better and more comprehensive than patience."</p>
+                           <p class="text-sm font-medium text-teal-600 mt-2">Sahih al-Bukhari</p>
+                        </div>
+                    </div>
+                    <!-- Promise Card: Spending -->
+                    <div class="promise-card flex flex-col bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">8. For Spending (Infaq)</h3>
+                        <p dir="rtl" class="arabic-text text-teal-900 mb-4 text-right">وَمَا أَنفَقْتُم مِّن شَيْءٍ فَهُوَ يُخْلِفُهُ</p>
+                        <p class="text-gray-700 mb-1 italic">"But whatever thing you spend [in His cause] - He will replace it..."</p>
+                        <p class="text-sm font-medium text-teal-600 mb-4">Qur'an, 34:39</p>
+                        <div class="mt-auto pt-4 border-t border-teal-100">
+                           <h4 class="font-semibold text-teal-800 mb-2">From the Sunnah:</h4>
+                           <p class="text-gray-600 italic">The Prophet (ﷺ) said, "There is not a day upon which the servants awaken but that two angels descend. One of them says: 'O Allah, give compensation to the one who spends.' The other says: 'O Allah, give ruin to the one who withholds.'"</p>
+                           <p class="text-sm font-medium text-teal-600 mt-2">Sahih al-Bukhari</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Category: Divine Support -->
+            <section class="promise-card-category">
+                <h2 class="text-2xl font-bold text-teal-700 border-b-2 border-teal-200 pb-2 mb-6">III. Promises of Divine Support</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Promise Card: Protection & Defense -->
+                    <div class="promise-card flex flex-col bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">9. For Protection & Defense</h3>
+                        <p dir="rtl" class="arabic-text text-teal-900 mb-4 text-right">إِنَّ اللَّهَ يُدَافِعُ عَنِ الَّذِينَ آمَنُوا</p>
+                        <p class="text-gray-700 mb-1 italic">"Verily Allah will defend (from ill) those who believe..."</p>
+                        <p class="text-sm font-medium text-teal-600 mb-4">Qur'an, 22:38</p>
+                        <div class="mt-auto pt-4 border-t border-teal-100">
+                           <h4 class="font-semibold text-teal-800 mb-2">From the Sunnah:</h4>
+                           <p class="text-gray-600 italic">The Prophet (ﷺ) said, "Allah the Exalted has said: 'Whoever takes a Wali (friend) of Mine as an enemy, I will declare war on him...'"</p>
+                           <p class="text-sm font-medium text-teal-600 mt-2">Sahih al-Bukhari</p>
+                        </div>
+                    </div>
+                    <!-- Promise Card: Answered Prayer -->
+                    <div class="promise-card flex flex-col bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">10. An Answered Prayer (Du'a)</h3>
+                        <p dir="rtl" class="arabic-text text-teal-900 mb-4 text-right">وَقَالَ رَبُّكُمُ ادْعُونِي أَسْتَجِبْ لَكُمْ</p>
+                        <p class="text-gray-700 mb-1 italic">"And your Lord says, 'Call upon Me; I will respond to you.'"</p>
+                        <p class="text-sm font-medium text-teal-600 mb-4">Qur'an, 40:60</p>
+                        <div class="mt-auto pt-4 border-t border-teal-100">
+                           <h4 class="font-semibold text-teal-800 mb-2">From the Sunnah:</h4>
+                           <p class="text-gray-600 italic">The Prophet (ﷺ) said, "The supplication of any one of you will be answered so long as he is not impatient and says, 'I supplicated, but I was not answered.'"</p>
+                           <p class="text-sm font-medium text-teal-600 mt-2">Sahih al-Bukhari</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Category: Protection and Security -->
+            <section class="promise-card-category">
+                <h2 class="text-2xl font-bold text-teal-700 border-b-2 border-teal-200 pb-2 mb-6">IV. Promises of Protection and Security</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Promise Card: Protection from Evil Eye -->
+                    <div class="promise-card flex flex-col bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">11. Protection from the Evil Eye</h3>
+                        <p dir="rtl" class="arabic-text text-teal-900 mb-4 text-right">مَا شَاءَ اللَّهُ لَا قُوَّةَ إِلَّا بِاللَّهِ</p>
+                        <p class="text-gray-700 mb-1 italic">"What Allah willed has occurred; there is no power except in Allah."</p>
+                        <p class="text-sm font-medium text-teal-600 mb-4">Qur'an, 18:39</p>
+                        <div class="mt-auto pt-4 border-t border-teal-100">
+                           <h4 class="font-semibold text-teal-800 mb-2">From the Sunnah:</h4>
+                           <p class="text-gray-600 italic">The Prophet (ﷺ) said: "The evil eye is real, and if anything were to overtake the divine decree, it would be the evil eye."</p>
+                           <p class="text-sm font-medium text-teal-600 mt-2">Sahih Muslim</p>
+                        </div>
+                    </div>
+                    <!-- Promise Card: Protection from Plots -->
+                    <div class="promise-card flex flex-col bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">12. Protection from Plots</h3>
+                        <p dir="rtl" class="arabic-text text-teal-900 mb-4 text-right">حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ</p>
+                        <p class="text-gray-700 mb-1 italic">"Sufficient for us is Allah, and [He is] the best Disposer of affairs."</p>
+                        <p class="text-sm font-medium text-teal-600 mb-4">Qur'an, 3:173-174</p>
+                        <div class="mt-auto pt-4 border-t border-teal-100">
+                           <h4 class="font-semibold text-teal-800 mb-2">From the Sunnah:</h4>
+                           <p class="text-gray-600 italic">Ibn 'Abbas said: "When Ibrahim (Abraham) was thrown into the fire, he said: 'Allah (Alone) is sufficient for us, and He is the Best Disposer of affairs.' So did Muhammad (ﷺ) when they said, 'A great army is gathering against you, therefore, fear them...'"</p>
+                           <p class="text-sm font-medium text-teal-600 mt-2">Sahih al-Bukhari</p>
+                        </div>
+                    </div>
+                    <!-- Promise Card: Protection from People's Harm -->
+                    <div class="promise-card flex flex-col bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">13. Protection from People's Harm</h3>
+                        <p dir="rtl" class="arabic-text text-teal-900 mb-4 text-right">وَأُفَوِّضُ أَمْرِي إِلَى اللَّهِ</p>
+                        <p class="text-gray-700 mb-1 italic">"And I entrust my affair to Allah."</p>
+                        <p class="text-sm font-medium text-teal-600 mb-4">Qur'an, 40:44-45</p>
+                        <div class="mt-auto pt-4 border-t border-teal-100">
+                           <h4 class="font-semibold text-teal-800 mb-2">From the Sunnah:</h4>
+                           <p class="text-gray-600 italic">The Prophet (ﷺ) said: "Be mindful of Allah, and you will find Him in front of you. If you ask, ask of Allah; if you seek help, seek help of Allah."</p>
+                           <p class="text-sm font-medium text-teal-600 mt-2">Jami` at-Tirmidhi</p>
+                        </div>
+                    </div>
+                    <!-- Promise Card: Protection from Distress -->
+                    <div class="promise-card flex flex-col bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">14. Protection from Distress & Grief</h3>
+                        <p dir="rtl" class="arabic-text text-teal-900 mb-4 text-right">لَّا إِلَٰهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ</p>
+                        <p class="text-gray-700 mb-1 italic">"There is no deity except You; exalted are You. Indeed, I have been of the wrongdoers."</p>
+                        <p class="text-sm font-medium text-teal-600 mb-4">Qur'an, 21:87-88</p>
+                        <div class="mt-auto pt-4 border-t border-teal-100">
+                           <h4 class="font-semibold text-teal-800 mb-2">From the Sunnah:</h4>
+                           <p class="text-gray-600 italic">The Prophet (ﷺ) said: "The supplication of Dhun-Nun (Prophet Yunus) which he supplicated while in the belly of the whale... no Muslim man supplicates with it for anything, but Allah will grant it to him."</p>
+                           <p class="text-sm font-medium text-teal-600 mt-2">Jami` at-Tirmidhi</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- No results message -->
+            <div id="no-results" class="hidden text-center py-10">
+                <h3 class="text-2xl font-semibold text-gray-700">No Promises Found</h3>
+                <p class="text-gray-500 mt-2">Try searching with a different keyword.</p>
+            </div>
+
+        </div>
+    </div>
+    
+    <!-- Scroll to Top Button -->
+    <button id="to-top-btn" class="fixed bottom-5 right-5 bg-teal-600 text-white p-3 rounded-full shadow-lg hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 opacity-0 invisible">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
+    </button>
+
+    <footer class="text-center py-6 mt-12 border-t border-gray-200">
+        <p class="text-gray-500">Created with reverence and love.</p>
+    </footer>
+
+    <script>
+        /**
+         * Filters the promise cards based on the user's input in the search bar.
+         * It checks the card's title and content for a match.
+         */
+        function filterPromises() {
+            // Get input element and filter value
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toUpperCase();
+            
+            // Get all promise cards and categories
+            const categories = document.querySelectorAll('.promise-card-category');
+            const noResultsMessage = document.getElementById('no-results');
+            
+            let anyVisible = false;
+
+            categories.forEach(category => {
+                const cards = category.querySelectorAll('.promise-card');
+                let categoryHasVisibleCard = false;
+
+                cards.forEach(card => {
+                    // Get the text content of the card
+                    const textContent = card.textContent || card.innerText;
+                    
+                    // Check if the card's content includes the filter text
+                    if (textContent.toUpperCase().indexOf(filter) > -1) {
+                        card.style.display = "flex"; // Changed from "" to "flex" to match card style
+                        categoryHasVisibleCard = true;
+                        anyVisible = true;
+                    } else {
+                        card.style.display = "none";
+                    }
+                });
+
+                // Show or hide the category title based on whether it has visible cards
+                if (categoryHasVisibleCard) {
+                    category.style.display = "";
+                } else {
+                    category.style.display = "none";
+                }
+            });
+            
+            // Show or hide the "no results" message
+            if (anyVisible) {
+                noResultsMessage.classList.add('hidden');
+            } else {
+                noResultsMessage.classList.remove('hidden');
+            }
+        }
+
+        /**
+         * Handles the visibility of the scroll-to-top button.
+         */
+        const toTopBtn = document.getElementById('to-top-btn');
+        
+        // Show button when user scrolls down
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                toTopBtn.classList.remove('opacity-0', 'invisible');
+                toTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                toTopBtn.classList.remove('opacity-100', 'visible');
+                toTopBtn.classList.add('opacity-0', 'invisible');
+            }
+        });
+
+        // Scroll to top when button is clicked
+        toTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+
+</body>
+</html>
