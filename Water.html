@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Parable of Water: An Interactive Journey</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Earthy Contemplation -->
+    <!-- Application Structure Plan: The application is designed as a two-part interactive journey to transform the passive text into an engaging experience. Section 1, "The Worldly Garden," uses an interactive slider to visually demonstrate the Quranic parable of flourishing and decay, making the concept of transience tangible. Section 2, "The Soul's Journey," uses a step-by-step, clickable interface to guide the user through the internalized analogy of the soul as a water droplet. This structure was chosen over a simple text layout to foster contemplation and deeper understanding by making the user an active participant in exploring the metaphors. It separates the two core ideas for clarity while linking them thematically. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: Quranic parable of life's stages (flourishing, decay, dispersal). Goal: Show transience. Viz/Method: HTML/CSS elements styled as plants, manipulated with a JS-powered range slider. Interaction: User drags slider to progress through stages. Justification: More immersive and memorable than static text. Directly visualizes the process of decay. Library: Vanilla JS.
+        - Report Info: Analogy of the soul's journey (descent, union, evaporation, return). Goal: Guide contemplation. Viz/Method: Styled HTML sections with Unicode icons (💧, 🌱, 💨, ☁️) and text panels. Interaction: User clicks buttons to reveal each stage sequentially. Justification: Creates a deliberate, step-by-step reflective path that mirrors the soul's linear journey. Library: Vanilla JS.
+        - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.
+    -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f5f4; /* stone-100 */
+            color: #3f3f46; /* zinc-700 */
+        }
+        .urdu {
+            font-family: 'Noto Naskh Arabic', serif;
+            direction: rtl;
+        }
+        .plant {
+            transition: all 1.5s ease-in-out;
+            transform-origin: bottom center;
+        }
+        .stage-button.active {
+            background-color: #3b82f6; /* blue-500 */
+            color: white;
+            border-color: #3b82f6;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto max-w-5xl p-4 sm:p-8">
+
+        <!-- Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl sm:text-4xl font-bold text-blue-600">The Parable of Water</h1>
+            <h2 class="urdu text-4xl sm:text-5xl font-bold text-blue-800 mt-2">پانی کی مثال</h2>
+            <p class="mt-4 text-lg text-stone-600">An interactive exploration of life, soul, and eternity in light of Surah Al-Kahf.</p>
+            <p class="urdu mt-2 text-xl text-stone-600">سورۃ الکہف کی روشنی میں زندگی، روح اور ابدیت کا ایک انٹرایکٹو جائزہ</p>
+        </header>
+
+        <!-- Section 1: The Worldly Garden -->
+        <section class="bg-white rounded-2xl shadow-lg p-6 sm:p-8 mb-12">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold text-emerald-700">Part I: The Worldly Garden</h3>
+                <h4 class="urdu text-3xl font-bold text-emerald-800 mt-1">حصہ اول: دنیا کا باغ</h4>
+                <p class="mt-3 max-w-3xl mx-auto text-stone-600">The Qur'an compares this worldly life to rain that brings forth a beautiful garden, only for it to wither and be scattered by the wind. Use the slider to journey through time and witness this parable unfold.</p>
+                <p class="urdu mt-2 max-w-3xl mx-auto text-stone-600">قرآن اس دنیاوی زندگی کو اس بارش سے تشبیہ دیتا ہے جو ایک خوبصورت باغ اگاتی ہے، لیکن پھر وہ سوکھ کر ہوا میں بکھر جاتا ہے۔ وقت کے سفر کے لیے سلائیڈر کا استعمال کریں اور اس مثال کو اپنی آنکھوں سے دیکھیں۔</p>
+            </div>
+
+            <div class="mt-8 p-4 border-2 border-dashed rounded-xl bg-stone-50">
+                <!-- Quranic Verse -->
+                <blockquote class="text-center mb-6">
+                    <p class="text-lg italic text-stone-700">"...like rain which We send down from the sky, and the vegetation of the earth mingles with it and [then] it becomes dry remnants, scattered by the winds..."</p>
+                    <p class="urdu text-xl italic text-stone-700 mt-2">’’...جیسے پانی جسے ہم نے آسمان سے برسایا تو اس کے ساتھ زمین کی روئیدگی مل گئی پھر وہ چورا چورا ہوگئی کہ ہوائیں اسے اڑاتی پھرتی ہیں...‘‘</p>
+                    <cite class="block not-italic mt-2 text-stone-500">Qur'an 18:45</cite>
+                </blockquote>
+
+                <!-- Interactive Visualization -->
+                <div id="garden" class="relative w-full h-64 flex justify-center items-end gap-2 overflow-hidden rounded-lg bg-sky-200">
+                    <!-- Plants -->
+                    <div class="plant w-4 h-16 bg-green-500 rounded-t-full"></div>
+                    <div class="plant w-5 h-24 bg-green-600 rounded-t-full"></div>
+                    <div class="plant w-3 h-12 bg-lime-500 rounded-t-full"></div>
+                    <div class="plant w-4 h-20 bg-emerald-500 rounded-t-full"></div>
+                    <div class="plant w-5 h-28 bg-green-500 rounded-t-full"></div>
+                    <div class="plant w-4 h-16 bg-lime-600 rounded-t-full"></div>
+                    <div class="plant w-3 h-24 bg-green-600 rounded-t-full"></div>
+                </div>
+                
+                <!-- Time Slider -->
+                <div class="mt-6 text-center">
+                    <label for="time-slider" class="block font-semibold mb-2">Time (وقت)</label>
+                    <input id="time-slider" type="range" min="0" max="100" value="0" class="w-full max-w-md mx-auto accent-blue-500">
+                    <div id="stage-text" class="mt-4 text-xl font-bold text-blue-600 transition-opacity duration-500">Flourishing (نشوونما)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: The Soul's Journey -->
+        <section class="bg-white rounded-2xl shadow-lg p-6 sm:p-8">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold text-indigo-700">Part II: The Soul's Journey</h3>
+                <h4 class="urdu text-3xl font-bold text-indigo-800 mt-1">حصہ دوم: روح کا سفر</h4>
+                <p class="mt-3 max-w-3xl mx-auto text-stone-600">This analogy views the soul as a water droplet on a journey from its divine source to the earth (the body) and back again. Explore the stages of this sacred cycle.</p>
+                <p class="urdu mt-2 max-w-3xl mx-auto text-stone-600">یہ تشبیہ روح کو پانی کے ایک قطرے کے طور پر دیکھتی ہے جو اپنے خدائی ماخذ سے زمین (جسم) کی طرف اور پھر واپس سفر کرتا ہے۔ اس مقدس چکر کے مراحل کو دریافت کریں۔</p>
+            </div>
+
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-4 gap-6 items-start">
+                <!-- Stage Buttons -->
+                <div class="col-span-1 flex md:flex-col justify-center gap-2">
+                    <button class="stage-button w-full text-left p-3 border-2 rounded-lg transition" data-stage="1">
+                        <span class="font-bold">1. The Descent</span><br><span class="urdu font-bold">نزول</span>
+                    </button>
+                    <button class="stage-button w-full text-left p-3 border-2 rounded-lg transition" data-stage="2">
+                        <span class="font-bold">2. The Union</span><br><span class="urdu font-bold">ملاپ</span>
+                    </button>
+                    <button class="stage-button w-full text-left p-3 border-2 rounded-lg transition" data-stage="3">
+                        <span class="font-bold">3. Evaporation</span><br><span class="urdu font-bold">تبخیر</span>
+                    </button>
+                    <button class="stage-button w-full text-left p-3 border-2 rounded-lg transition" data-stage="4">
+                        <span class="font-bold">4. The Return</span><br><span class="urdu font-bold">واپسی</span>
+                    </button>
+                </div>
+
+                <!-- Stage Content -->
+                <div class="md:col-span-3 relative min-h-[300px]">
+                    <!-- Stage 1 -->
+                    <div id="stage-1" class="stage-content absolute w-full bg-stone-50 p-6 rounded-xl border-2 border-dashed transition-opacity duration-700">
+                        <div class="flex items-center gap-4">
+                            <div class="text-5xl">☁️</div>
+                            <div>
+                                <h5 class="text-xl font-bold">The Soul as the Water Droplet</h5>
+                                <h6 class="urdu text-2xl font-bold">روح بطور پانی کا قطرہ</h6>
+                            </div>
+                        </div>
+                        <p class="mt-4">The soul is like a pure droplet of water, sent down from a divine, heavenly source by the command of the Creator. Its journey is one of descent to the earth.</p>
+                        <p class="urdu mt-2">روح پانی کے ایک پاکیزہ قطرے کی مانند ہے، جسے خالق کے حکم سے ایک خدائی، آسمانی ماخذ سے نیچے بھیجا گیا ہے۔ اس کا سفر زمین کی طرف پستی کا ہے۔</p>
+                    </div>
+                    <!-- Stage 2 -->
+                    <div id="stage-2" class="stage-content absolute w-full bg-stone-50 p-6 rounded-xl border-2 border-dashed transition-opacity duration-700 opacity-0">
+                        <div class="flex items-center gap-4">
+                            <div class="text-5xl">🌱</div>
+                            <div>
+                                <h5 class="text-xl font-bold">The Body as the Soil</h5>
+                                <h6 class="urdu text-2xl font-bold">جسم بطور مٹی</h6>
+                            </div>
+                        </div>
+                        <p class="mt-4">The destination is a chosen patch of soil—our body. The union of the celestial droplet and the earthen vessel is the dawn of our consciousness, to cultivate a garden of deeds.</p>
+                        <p class="urdu mt-2">اس کی منزل مٹی کا ایک منتخب ٹکڑا ہے—ہمارا جسم۔ آسمانی قطرے اور مٹی کے برتن کا یہ ملاپ ہمارے شعور کا آغاز ہے، تاکہ اعمال کا ایک باغ لگایا جا سکے۔</p>
+                    </div>
+                    <!-- Stage 3 -->
+                    <div id="stage-3" class="stage-content absolute w-full bg-stone-50 p-6 rounded-xl border-2 border-dashed transition-opacity duration-700 opacity-0">
+                        <div class="flex items-center gap-4">
+                            <div class="text-5xl">💨</div>
+                            <div>
+                                <h5 class="text-xl font-bold">Time as Evaporation</h5>
+                                <h6 class="urdu text-2xl font-bold">وقت بطور تبخیر</h6>
+                            </div>
+                        </div>
+                        <p class="mt-4">From the moment the droplet settles, evaporation begins. This is time. With every second, a part of the soul ascends, yearning to return to its source.</p>
+                        <p class="urdu mt-2">جس لمحے قطرہ ٹھہرتا ہے، تبخیر شروع ہو جاتی ہے۔ یہی وقت ہے۔ ہر سیکنڈ کے ساتھ، روح کا ایک حصہ بلند ہوتا ہے، اپنے ماخذ کی طرف لوٹنے کی آرزو کرتا ہے۔</p>
+                    </div>
+                    <!-- Stage 4 -->
+                    <div id="stage-4" class="stage-content absolute w-full bg-stone-50 p-6 rounded-xl border-2 border-dashed transition-opacity duration-700 opacity-0">
+                        <div class="flex items-center gap-4">
+                            <div class="text-5xl">💧➡️☁️</div>
+                            <div>
+                                <h5 class="text-xl font-bold">Death as a Change of State</h5>
+                                <h6 class="urdu text-2xl font-bold">موت بطور حالت کی تبدیلی</h6>
+                            </div>
+                        </div>
+                        <p class="mt-4">Water is never destroyed; it just changes state. The soul, too, does not perish. It completes its transformation, sheds its earthly state, and returns to the One who sent it.</p>
+                        <p class="urdu mt-2">پانی کبھی تباہ نہیں ہوتا؛ یہ صرف حالت بدلتا ہے۔ روح بھی فنا نہیں ہوتی۔ یہ اپنی تبدیلی مکمل کرتی ہے، اپنی دنیاوی حالت کو چھوڑتی ہے، اور اس ذات کی طرف لوٹ جاتی ہے جس نے اسے بھیجا تھا۔</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // Section 1: The Worldly Garden Logic
+        const slider = document.getElementById('time-slider');
+        const plants = document.querySelectorAll('.plant');
+        const stageText = document.getElementById('stage-text');
+
+        slider.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            stageText.style.opacity = '0';
+
+            setTimeout(() => {
+                if (value < 33) {
+                    // Flourishing stage
+                    stageText.textContent = 'Flourishing (نشوونما)';
+                    stageText.className = 'mt-4 text-xl font-bold text-green-600 transition-opacity duration-500';
+                    plants.forEach((plant, i) => {
+                        plant.style.backgroundColor = i % 3 === 0 ? '#22c55e' : (i % 3 === 1 ? '#10b981' : '#84cc16'); // green/emerald/lime
+                        plant.style.opacity = '1';
+                        plant.style.transform = 'rotate(0deg) scale(1)';
+                    });
+                } else if (value < 66) {
+                    // Decline stage
+                    stageText.textContent = 'Decline (زوال)';
+                    stageText.className = 'mt-4 text-xl font-bold text-amber-700 transition-opacity duration-500';
+                    plants.forEach(plant => {
+                        plant.style.backgroundColor = '#a16207'; // amber-700
+                        plant.style.opacity = '0.7';
+                        plant.style.transform = 'rotate(5deg)';
+                    });
+                } else {
+                    // Dispersal stage
+                    stageText.textContent = 'Dispersal (انتشار)';
+                    stageText.className = 'mt-4 text-xl font-bold text-stone-500 transition-opacity duration-500';
+                    plants.forEach((plant, i) => {
+                        plant.style.backgroundColor = '#78716c'; // stone-500
+                        plant.style.opacity = '0';
+                        const rotation = (i % 2 === 0 ? 1 : -1) * (60 + Math.random() * 30);
+                        const scale = 0.2;
+                        plant.style.transform = `rotate(${rotation}deg) scale(${scale}) translateY(50px)`;
+                    });
+                }
+                stageText.style.opacity = '1';
+            }, 250);
+        });
+
+        // Section 2: The Soul's Journey Logic
+        const stageButtons = document.querySelectorAll('.stage-button');
+        const stageContents = document.querySelectorAll('.stage-content');
+
+        function showStage(stageNumber) {
+            stageContents.forEach(content => {
+                content.classList.add('opacity-0');
+                content.style.pointerEvents = 'none';
+            });
+            
+            const activeContent = document.getElementById(`stage-${stageNumber}`);
+            if(activeContent) {
+                activeContent.classList.remove('opacity-0');
+                activeContent.style.pointerEvents = 'auto';
+            }
+
+            stageButtons.forEach(button => {
+                if (button.dataset.stage === stageNumber) {
+                    button.classList.add('active');
+                } else {
+                    button.classList.remove('active');
+                }
+            });
+        }
+
+        stageButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                showStage(button.dataset.stage);
+            });
+        });
+
+        // Initialize first stage
+        showStage('1');
+
+    </script>
+</body>
+</html>
